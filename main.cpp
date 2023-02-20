@@ -19,6 +19,7 @@ void DisplayArray(int array[],int sizeOfArray)
 //FUNCTION TO FIND COMMON ELEMENTS IN THE BOTH ARRAY
 void CommonElements(int array1[],int array2[],int sizeOfArray)
 {
+	bool found =  false;
 	int commonElement[sizeOfArray];
 	int commonElementPosition=0;
 	for(int i=0; i<sizeOfArray; i ++)
@@ -27,11 +28,23 @@ void CommonElements(int array1[],int array2[],int sizeOfArray)
 		{
 			if(array1[i]==array2[j])
 			{
-				commonElement[commonElementPosition]= array1[i];
-				commonElementPosition++;
+				for(int k=0; k<=commonElementPosition;k++)
+				{
+					if(array1[i]==commonElement[k])
+					{
+						found = true;
+					}
+				}
+				if(found == false)
+				{
+					commonElement[commonElementPosition]= array1[i];
+					commonElementPosition++;
+				}
+				break;
 			}
 		}
 	}
+	commonElementPosition++;
 	cout<<"\nCOMMON ELEMENTS : ";
 	DisplayArray(commonElement,commonElementPosition);
 }
