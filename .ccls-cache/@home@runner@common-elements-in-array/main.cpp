@@ -1,5 +1,20 @@
 #include <iostream>
 using namespace std;
+
+bool SearchByNumber(int array[],int sizeOfArray,int number)
+{
+	bool found = false;
+	for(int i=0; i<sizeOfArray; i++)
+	{
+		if(array[i]==number)
+		{
+			return true;
+			break;
+		}
+	}
+	return found;
+}
+
 //FUNCTION TO ADD ARRAY ELEMNTS
 void AddArrayElements(int array[],int sizeOfArray,int lowerLimit,int upperLimit)
 {
@@ -28,13 +43,7 @@ void CommonElements(int array1[],int array2[],int sizeOfArray)
 		{
 			if(array1[i]==array2[j])
 			{
-				for(int k=0;k<commonElementPosition;k++)
-				{
-					if(array1[i]==commonElement[k])
-					{
-						found = true;
-					}
-				}
+				found = SearchByNumber(commonElement, commonElementPosition ,array1[i]);
 				if(found==false)
 				{
 					commonElement[commonElementPosition] = array1[i];
