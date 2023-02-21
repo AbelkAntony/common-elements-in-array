@@ -22,29 +22,28 @@ void CommonElements(int array1[],int array2[],int sizeOfArray)
 	bool found =  false;
 	int commonElement[sizeOfArray];
 	int commonElementPosition=0;
-	for(int i=0; i<sizeOfArray; i ++)
+	for(int i=0; i<sizeOfArray;i++)
 	{
-		for(int j=0; j<sizeOfArray; j++)
+		for(int j=0;j<sizeOfArray;j++)
 		{
 			if(array1[i]==array2[j])
 			{
-				for(int k=0; k<=commonElementPosition;k++)
+				for(int k=0;k<commonElementPosition;k++)
 				{
 					if(array1[i]==commonElement[k])
 					{
 						found = true;
 					}
 				}
-				if(found == false)
+				if(found==false)
 				{
-					commonElement[commonElementPosition]= array1[i];
+					commonElement[commonElementPosition] = array1[i];
 					commonElementPosition++;
 				}
 				break;
 			}
 		}
 	}
-	commonElementPosition++;
 	cout<<"\nCOMMON ELEMENTS : ";
 	DisplayArray(commonElement,commonElementPosition);
 }
